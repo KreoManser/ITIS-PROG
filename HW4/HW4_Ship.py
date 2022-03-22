@@ -32,24 +32,27 @@ def attack(back_field, front_field):
             x = int(index[0])
             y = int(index[1])
             # print(index)
-            if back_field[x][y] == "*":
-                front_field[x][y] = "X"
-                print("RIP")
-                print_field(front_field)
-                # print("\n")
-                # print(print_field(back_field))
-                kill_count += 1
-            elif front_field[x][y] == "o" or front_field[x][y] == "X":
-                print("Эта клетка уже открыта")
-                print_field(front_field)
-                # print("\n")
-                # print(print_field(back_field))
-            else:
-                front_field[x][y] = "o"
-                print("MISS")
-                print_field(front_field)
-                # print("\n")
-                # print(print_field(back_field))
+            try:
+                if back_field[x][y] == "*":
+                    front_field[x][y] = "X"
+                    print("RIP")
+                    print_field(front_field)
+                    # print("\n")
+                    # print(print_field(back_field))
+                    kill_count += 1
+                elif front_field[x][y] == "o" or front_field[x][y] == "X":
+                    print("Эта клетка уже открыта")
+                    print_field(front_field)
+                    # print("\n")
+                    # print(print_field(back_field))
+                else:
+                    front_field[x][y] = "o"
+                    print("MISS")
+                    print_field(front_field)
+                    # print("\n")
+                    # print(print_field(back_field))
+            except IndexError:
+                print("Выход за пределы!")
         coord = input(f'Введите координаты ')
 
 
