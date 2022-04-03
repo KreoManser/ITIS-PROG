@@ -38,7 +38,7 @@ def brick_lang(string):
     new = ""
     for i in range(len(string)):
         if string[i] in alph:
-            new += "к" 
+            new += "к" + string[i]
         else:
             new += string[i]
     return string
